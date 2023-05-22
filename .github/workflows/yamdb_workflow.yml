@@ -63,9 +63,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker compose stop web
+            sudo docker compose stop
             sudo docker compose rm web
-            sudo docker image rm gruand69/api_yamdb
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
