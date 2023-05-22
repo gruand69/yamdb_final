@@ -1,3 +1,4 @@
+![workflow](https://github.com/gruand69/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 # Проект YaMDb
 
 Проект YaMDb собирает отзывы пользователей на различные произведения такие как
@@ -50,55 +51,47 @@ API YaMDb позволяет работать со следующими сущн
 
 ## Как запустить проект:
 
-Клонировать репозиторий:
+Установка Docker 
 
-```
-git clone https://github.com/airatbakiev/infra_sp2.git
-```
+Выполните установку docker для вашей операционной системы согласно инструкции на официальном сайте https://docs.docker.com/desktop/ 
 
-Перейти в папку infra и запустить docker-compose.yaml
-(при установленном и запущенном Docker)
-```
-cd infra_sp2/infra
-docker-compose up
-```
+### Шаблон env-файла
 
-Для пересборки контейнеров выполнять команду:
-(находясь в папке infra, при запущенном Docker)
-```
-docker-compose up -d --build
-```
+Secret - секрет Джанго
 
-В контейнере web выполнить миграции:
+Данные БД Postgres: 
 
-```
-docker-compose exec web python manage.py migrate
-```
+DB_ENGINE - движок postgres
 
-Создать суперпользователя:
+DB_NAME - имя БД
 
+POSTGRES_USER - пользователь БД
+
+POSTGRES_PASSWORD - пароль БД
+
+DB_HOST - название сервиса (контейнера)
+
+DB_PORT - порт для подключения к БД 
+
+### Запуск контейнеров:
+Перед началом установки перейдите на компьютере в директорию с файлом docker-compose.yaml.
+
+#### 1. Клонируйте проект:
+```sh
+git@github.com:gruand69/yamdb_final.git
 ```
+#### 2. Разверните проект:
+```sh
+docker-compose up -d
+```
+#### 3. Создать суперпользователя:
+```sh
 docker-compose exec web python manage.py createsuperuser
 ```
-
-Собрать статику:
-
+#### 4. Импорт базы данных:
+```sh
+docker-compose exec web python manage.py dumpdata > дамп_бд.json
 ```
-docker-compose exec web python manage.py collectstatic --no-input
-```
-
-Проверьте работоспособность приложения, для этого перейдите на страницу:
-
-```
- http://localhost/admin/
-```
-
-***Документация*** (запросы для работа с API):
-
-```
- http://localhost/redoc/
-```
-![workflow](https://github.com/gruand69/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ## Авторы:
 [Антон Молчанов](https://github.com/antxrest)
