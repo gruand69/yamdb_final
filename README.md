@@ -1,8 +1,14 @@
 ![workflow](https://github.com/gruand69/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
 # Проект YaMDb
 
 Проект YaMDb собирает отзывы пользователей на различные произведения такие как
 фильмы, книги и музыка.
+
+## Развёрнутый проект
+http://gruand69.ddns.net/api/v1/
+http://gruand69.ddns.net/admin/
+http://gruand69.ddns.net/redoc/
 
 ## Описание проекта:
 
